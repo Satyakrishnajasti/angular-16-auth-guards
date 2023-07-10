@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,4 +9,9 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.sass'],
 })
-export class HomeComponent {}
+export class HomeComponent {
+  constructor(private readonly router: Router) {}
+  protected navigateForm() {
+    this.router.navigate(['/form']);
+  }
+}
